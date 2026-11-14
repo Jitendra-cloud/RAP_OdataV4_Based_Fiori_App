@@ -152,7 +152,14 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Travel"
+              "contextPath": "/Travel",
+              "controlConfiguration": {
+                "_Booking/@com.sap.vocabularies.UI.v1.LineItem#i18nbookings": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
             }
           },
           "controlAggregation": "midColumnPages",
