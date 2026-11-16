@@ -175,6 +175,20 @@
                     "route": "Travel__BookingObjectPage"
                   }
                 }
+              },
+              "content": {
+                "body": {
+                  "sections": {
+                    "GeoMap": {
+                      "template": "travels.ext.fragment.GeoMap",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "i18nbookings"
+                      },
+                      "title": "{i18n>itinerary}"
+                    }
+                  }
+                }
               }
             }
           },
