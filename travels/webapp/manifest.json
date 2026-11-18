@@ -60,7 +60,8 @@
         "sap.m": {},
         "sap.ui.core": {},
         "sap.fe.templates": {},
-        "sap.f": {}
+        "sap.f": {},
+        "sap.ui.layout": {}
       }
     },
     "contentDensities": {
@@ -89,7 +90,11 @@
       }
     },
     "resources": {
-      "css": []
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
     },
     "routing": {
       "config": {
@@ -131,7 +136,15 @@
           "id": "TravelList",
           "name": "sap.fe.templates.ListReport",
           "options": {
-            "settings": {
+            "settings": { 
+              "content": {
+                "header": {
+                  "customHeader": {
+                    "expandedHeaderFragment": "travels.ext.fragment.TravelDetailsHeader",
+                    "collapsedHeaderFragment": "travels.ext.fragment.TravelDetailsHeader"
+                  }
+                } 
+              },
               "contextPath": "/Travel",
               "variantManagement": "Page",
               "navigation": {
@@ -145,6 +158,14 @@
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
+                  },
+                  "actions": {
+                    "displaySelectedTravel": {
+                      "press": "travels.ext.controller.TravelListExtension.onShowSelectedTravel",
+                      "enabled": "travels.ext.controller.TravelListExtension.onSelectionChanged",
+                      "visible": true,
+                      "text": "Display Selected Travel"
+                    }
                   }
                 }
               },
@@ -215,6 +236,15 @@
       "type": "XML",
       "async": true,
       "id": "appRootView"
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "travels.ext.controller.TravelHeaderExtension"
+          }
+        }
+      }
     }
   },
   "sap.fiori": {

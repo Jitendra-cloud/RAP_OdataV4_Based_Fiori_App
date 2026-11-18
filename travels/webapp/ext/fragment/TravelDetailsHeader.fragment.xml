@@ -1,0 +1,73 @@
+
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+
+    <VBox
+        class="travelDetailsWatermark"
+        width="100%">
+
+        <!-- Letterhead -->
+        <VBox
+            class="travelLetterhead"
+            width="100%"
+            alignItems="Center">
+
+            <Title
+                text="SELECTED TRAVEL DETAILS"
+                level="H2"
+                class="travelLetterheadTitle"/>
+
+            <core:HTML
+                content="&lt;div class='travelLetterheadLine'&gt;&lt;/div&gt;"/>
+
+        </VBox>
+
+        <!-- Travel Information -->
+        <f:SimpleForm
+            editable="false"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="2"
+            emptySpanXL="1"
+            emptySpanL="1"
+            emptySpanM="0"
+            singleContainerFullSize="false"
+            class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+
+            <Title text="TRAVEL INFORMATION" level="H4"/>
+
+            <Label text="Travel ID"/>
+            <Text text="{travelSelection>/TravelID}"/>
+
+            <Label text="Agency ID"/>
+            <Text text="{travelSelection>/AgencyID}"/>
+
+            <Label text="Customer ID"/>
+            <Text text="{travelSelection>/CustomerID}"/>
+
+            <Label text="Description"/>
+            <Text
+                text="{travelSelection>/Description}"
+                wrapping="true"/>
+
+            <Label text="Starting Date"/>
+            <Text text="{travelSelection>/BeginDate}"/>
+
+            <Label text="End Date"/>
+            <Text text="{travelSelection>/EndDate}"/>
+
+            <Label text="Total Price"/>
+            <Text text="{travelSelection>/TotalPrice}"/>
+
+        </f:SimpleForm>
+
+    </VBox>
+
+</core:FragmentDefinition>
