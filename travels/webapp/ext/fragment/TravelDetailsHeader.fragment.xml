@@ -1,12 +1,12 @@
 
 <core:FragmentDefinition
     xmlns="sap.m"
-    xmlns:core="sap.ui.core"
-    xmlns:f="sap.ui.layout.form">
+    xmlns:core="sap.ui.core">
 
     <VBox
         class="travelDetailsWatermark"
-        width="100%">
+        width="100%"
+        visible="{= !!${travelSelection>/TravelID} }">
 
         <!-- Letterhead -->
         <VBox
@@ -19,54 +19,70 @@
                 level="H2"
                 class="travelLetterheadTitle"/>
 
+            <!-- Horizontal blue line -->
             <core:HTML
-                content="&lt;div class='travelLetterheadLine'&gt;&lt;/div&gt;"/>
+                content="&lt;div style='width:100%;height:2px;background-color:#174A7E;'&gt;&lt;/div&gt;"/>
 
         </VBox>
 
         <!-- Travel Information -->
-        <f:SimpleForm
-            editable="false"
-            layout="ResponsiveGridLayout"
-            labelSpanXL="3"
-            labelSpanL="3"
-            labelSpanM="4"
-            labelSpanS="12"
-            columnsXL="2"
-            columnsL="2"
-            columnsM="2"
-            emptySpanXL="1"
-            emptySpanL="1"
-            emptySpanM="0"
-            singleContainerFullSize="false"
-            class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+        <VBox class="travelInformationSection">
 
-            <Title text="TRAVEL INFORMATION" level="H4"/>
+            <Title
+                text="TRAVEL INFORMATION"
+                level="H4"
+                class="travelInformationTitle"/>
 
-            <Label text="Travel ID"/>
-            <Text text="{travelSelection>/TravelID}"/>
+            <!-- Row 1 -->
+            <HBox class="travelDetailRow" width="100%">
+                <HBox class="travelDetailItem" width="50%">
+                    <Label text="Travel ID:"/>
+                    <Text text="{travelSelection>/TravelID}"/>
+                </HBox>
 
-            <Label text="Agency ID"/>
-            <Text text="{travelSelection>/AgencyID}"/>
+                <HBox class="travelDetailItem" width="50%">
+                    <Label text="Agency ID:"/>
+                    <Text text="{travelSelection>/AgencyID}"/>
+                </HBox>
+            </HBox>
 
-            <Label text="Customer ID"/>
-            <Text text="{travelSelection>/CustomerID}"/>
+            <!-- Row 2 -->
+            <HBox class="travelDetailRow" width="100%">
+                <HBox class="travelDetailItem" width="50%">
+                    <Label text="Customer ID:"/>
+                    <Text text="{travelSelection>/CustomerID}"/>
+                </HBox>
 
-            <Label text="Description"/>
-            <Text
-                text="{travelSelection>/Description}"
-                wrapping="true"/>
+                <HBox class="travelDetailItem" width="50%">
+                    <Label text="Description:"/>
+                    <Text
+                        text="{travelSelection>/Description}"
+                        wrapping="true"/>
+                </HBox>
+            </HBox>
 
-            <Label text="Starting Date"/>
-            <Text text="{travelSelection>/BeginDate}"/>
+            <!-- Row 3 -->
+            <HBox class="travelDetailRow" width="100%">
+                <HBox class="travelDetailItem" width="50%">
+                    <Label text="Starting Date:"/>
+                    <Text text="{travelSelection>/BeginDate}"/>
+                </HBox>
 
-            <Label text="End Date"/>
-            <Text text="{travelSelection>/EndDate}"/>
+                <HBox class="travelDetailItem" width="50%">
+                    <Label text="End Date:"/>
+                    <Text text="{travelSelection>/EndDate}"/>
+                </HBox>
+            </HBox>
 
-            <Label text="Total Price"/>
-            <Text text="{travelSelection>/TotalPrice}"/>
+            <!-- Row 4 -->
+            <HBox class="travelDetailRow" width="100%">
+                <HBox class="travelDetailItem" width="50%">
+                    <Label text="Total Price:"/>
+                    <Text text="{travelSelection>/TotalPrice}"/>
+                </HBox>
+            </HBox>
 
-        </f:SimpleForm>
+        </VBox>
 
     </VBox>
 

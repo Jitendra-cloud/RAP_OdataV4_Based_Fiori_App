@@ -1,13 +1,6 @@
 
 /* =========================================================
-   GENERAL APPLICATION STYLES
-   ========================================================= */
-
-/* Add general application styles here if required */
-
-
-/* =========================================================
-   TRAVEL DETAILS SECTION
+   TRAVEL DETAILS MAIN CONTAINER
    ========================================================= */
 
 .travelDetailsWatermark {
@@ -21,43 +14,81 @@
 
 
 /* =========================================================
-   LETTERHEAD HEADER
+   LETTERHEAD
    ========================================================= */
 
 .travelLetterhead {
-    position: relative;
     width: 100%;
-    padding: 1.25rem 1.5rem 0.85rem 1.5rem;
+    padding: 0.8rem 2rem 0.5rem 2rem;
     background-color: #ffffff;
-    text-align: center;
     box-sizing: border-box;
 }
 
-/* Letterhead title */
-
 .travelLetterheadTitle {
-    display: block;
-    width: 100%;
     color: #174A7E !important;
-    font-size: 1.55rem !important;
+    font-size: 1.4rem !important;
     font-weight: 700 !important;
-    letter-spacing: 2px;
+    letter-spacing: 1.8px;
     text-align: center !important;
-    margin: 0 !important;
+    margin: 0 0 0.5rem 0 !important;
 }
 
-/* Letterhead underline */
+/* =========================================================
+   TRAVEL INFORMATION
+   ========================================================= */
 
-.travelLetterheadLine {
+.travelInformationSection {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    height: 2px;
-    background-color: #174A7E;
-    margin-top: 0.8rem;
+    padding: 0.5rem 3rem 0.8rem 3rem;
+    box-sizing: border-box;
+}
+
+.travelInformationTitle {
+    color: #174A7E !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.5rem 0 !important;
 }
 
 
 /* =========================================================
-   TRAVEL DETAILS WATERMARK
+   TWO-COLUMN FIELD LAYOUT
+   ========================================================= */
+
+.travelDetailRow {
+    width: 100%;
+    align-items: center;
+    margin-bottom: 0.45rem;
+}
+
+.travelDetailItem {
+    width: 50%;
+    align-items: center;
+    gap: 0.6rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
+}
+
+.travelDetailItem .sapMLabel {
+    width: 8rem;
+    min-width: 8rem;
+    color: #526477 !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-align: right;
+}
+
+.travelDetailItem .sapMText {
+    color: #172B4D !important;
+    font-size: 0.9rem !important;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   WATERMARK
    ========================================================= */
 
 .travelDetailsWatermark::after {
@@ -66,12 +97,9 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-25deg);
-
     font-size: 2.5rem;
     font-weight: bold;
-
-    color: rgba(0, 80, 150, 0.055);
-
+    color: rgba(0, 80, 150, 0.045);
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
@@ -79,68 +107,37 @@
 
 
 /* =========================================================
-   FORM CONTENT - KEEP ABOVE WATERMARK
+   RESPONSIVE DESIGN
    ========================================================= */
 
-.travelDetailsWatermark .sapUiForm,
-.travelDetailsWatermark .sapUiFormResGrid,
-.travelDetailsWatermark .sapUiFormResGridCont,
-.travelDetailsWatermark .sapMLabel,
-.travelDetailsWatermark .sapMText,
-.travelDetailsWatermark .sapUiFormTitle {
-    position: relative;
-    z-index: 1;
-}
+@media screen and (max-width: 700px) {
 
+    .travelInformationSection {
+        padding: 0.5rem 1rem;
+    }
 
-/* =========================================================
-   FORM LABELS
-   ========================================================= */
+    .travelDetailRow {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 0;
+    }
 
-.travelDetailsWatermark .sapMLabel {
-    color: #526477;
-    font-weight: 600;
-}
+    .travelDetailItem {
+        width: 100%;
+        padding: 0.25rem 0;
+    }
 
-
-/* =========================================================
-   FORM VALUES
-   ========================================================= */
-
-.travelDetailsWatermark .sapMText {
-    color: #172B4D;
-    font-size: 0.95rem;
-}
-
-
-/* =========================================================
-   FORM SECTION TITLE
-   ========================================================= */
-
-.travelDetailsWatermark .sapUiFormTitle {
-    color: #174A7E !important;
-    font-size: 1rem !important;
-    font-weight: 700 !important;
-}
-
-
-/* =========================================================
-   RESPONSIVE ADJUSTMENTS
-   ========================================================= */
-
-@media screen and (max-width: 600px) {
-
-    .travelLetterhead {
-        padding: 1rem 0.75rem 0.75rem 0.75rem;
+    .travelDetailItem .sapMLabel {
+        width: 7rem;
+        min-width: 7rem;
     }
 
     .travelLetterheadTitle {
-        font-size: 1.2rem !important;
+        font-size: 1.15rem !important;
         letter-spacing: 1px;
     }
 
     .travelDetailsWatermark::after {
         font-size: 1.5rem;
     }
-
 }
